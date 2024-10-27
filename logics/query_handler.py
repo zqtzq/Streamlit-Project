@@ -15,7 +15,7 @@ embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
 @st.cache_data
 def load_documents(file_path):
     # Load and process documents only once, then cache the results
-    
+
     with open(file_path, 'r') as f:
         data = json.load(f)
 
@@ -35,8 +35,9 @@ def load_documents(file_path):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=330, chunk_overlap=10, length_function=count_tokens)
     return text_splitter.split_documents(documents)
 
-file_path = r'C:\Users\ASUS\Documents\ABC Bootcamp 2024 (Govtech)\Streamlit Project\scraped_content_old.json'
-splitted_documents = load_documents(file_path)
+file_path = 'scraped_content_old.json'
+# r'C:\Users\ASUS\Documents\ABC Bootcamp 2024 (Govtech)\Streamlit Project\scraped_content_old.json'
+splitted_documents = load_documents(file_path)#
 
 # Create the FAISS vector database from the documents
 vectordb = FAISS.from_documents(documents=splitted_documents, embedding=embeddings_model)
