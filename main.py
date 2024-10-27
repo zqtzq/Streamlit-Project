@@ -35,9 +35,9 @@ st.title("Ask your questions on MOM's published circulars:")
 
 # Form for user input
 form = st.form(key="form")
-form.subheader("Prompt")
+form.subheader("Question:"
 
-user_prompt = form.text_area("Enter your prompt here (eg. Can excavators be used as lifting machines?)", height=200)
+user_prompt = form.text_area("eg. Can excavators be used as lifting machines? Are CCTVs required at construction sites?", height=200)
 
 if form.form_submit_button("Submit"):
     st.toast(f"User Input Submitted - {user_prompt}")
