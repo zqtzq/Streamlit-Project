@@ -9,9 +9,16 @@ st.set_page_config(
 
 st.title("About this App")
 
-st.write("This is a Streamlit App that demonstrates how to use the OpenAI API to generate text completions.")
+st.header("Project Scope & Objectives")
+st.write("This project aims to enhance workplace safety and health knowledge among  workers in Singapore’s construction industry by providing easy access to data published on MOM's website. By providing easy access to vital information, the app seeks to empower workers with the knowledge they need to work safely.")
 
-with st.expander("How to use this App"):
-    st.write("1. Enter your prompt in the text area.")
-    st.write("2. Click the 'Submit' button.")
-    st.write("3. The app will generate a text completion based on your prompt.")
+st.header("Data Sources")
+st.write("""
+- **Ministry of Manpower (MOM)**: The primary source of data currently includes PDF circulars related to workplace safety and health, released by MOM since year 2000.
+""")
+
+st.header("Features")
+st.write("""
+- **User-Friendly Interface**: Simple input method for users to ask questions about workplace safety and health.
+- **Source Citations**: Each response is accompanied by relevant excerpts from MOM documents, enhancing transparency and trust.
+""")
