@@ -35,7 +35,7 @@ st.title("Ask your questions on MOM's published circulars:")
 
 # Form for user input
 form = st.form(key="form")
-form.subheader("Question:"
+form.subheader("Question:")
 
 user_prompt = form.text_area("eg. Can excavators be used as lifting machines? Are CCTVs required at construction sites?", height=200)
 
