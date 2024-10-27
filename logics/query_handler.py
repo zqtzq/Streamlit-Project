@@ -1,4 +1,7 @@
-from langchain_community.document_loaders import JSONLoader
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import json
 from langchain.schema import Document
 from helper_functions.llm import *

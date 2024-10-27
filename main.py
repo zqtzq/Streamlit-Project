@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from logics.query_handler import process_user_message # note that this is logics.query_handler and not just query_handler as the query_handler.py file is inside the logics folder
 
