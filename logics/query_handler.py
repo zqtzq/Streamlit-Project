@@ -47,7 +47,7 @@ def process_user_message(user_input):
     # Build prompt template
     template = """Use the following pieces of context to answer the question at the end.
     If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    Your answer should be clear and succinct.
+    Your answer should be clear and succinct. You may encounter questions in langugages other than English. If so, please use the same language to answer the question.
     {context}
     Question: {question}
     Helpful Answer:"""
