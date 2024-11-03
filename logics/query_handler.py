@@ -65,3 +65,53 @@ def process_user_message(user_input):
     reply = qa_chain.invoke(user_input)
 
     return reply
+
+def safety_message_translator_chinese(message):
+    delimiter = "####"
+
+    system_message = f"""
+    You will be provided with a response reply in English language from a Large Language Model (LLM) related to workplace safety and health to the user. 
+    The response will be enclosed in a pair of {delimiter}. Your task is to translate the response into Chinese, bearing in mind that the message context is in Singapore's safety industry, and technical jargon may be used in the message. The reader is a foreign worker who is not fluent in English. The translation should be succinct, clear and easy to understand.
+
+    If the response reply is "I don't know":, you should not reinvent the wheel and come up with something that is not in the response.  
+    """
+    messages =  [
+        {'role':'system',
+         'content': system_message},
+        {'role':'user',
+         'content': f"{delimiter}{message}{delimiter}"},
+    ]
+    translated_response_chinese_str = get_completion_by_messages(messages)
+    translated_response_chinese_str = translated_response_chinese_str.replace("'", "\"")
+    # translated_response_chinese = json.loads(translated_response_chinese_str)
+    return translated_response_chinese_str
+
+def translate_output_chinese(message):
+
+    translation_chinese = safety_message_translator_chinese(message)
+    return translation_chinese
+
+
+def safety_message_translator_bengali(message):
+    delimiter = "####"
+
+    system_message = f"""
+    You will be provided with a response reply in English language from a Large Language Model (LLM) related to workplace safety and health to the user. 
+    The response will be enclosed in a pair of {delimiter}. Your task is to translate the response into Bengali, bearing in mind that the message context is in Singapore's safety industry, and technical jargon may be used in the message. The reader is a foreign worker who is not fluent in English. The translation should be succinct, clear and easy to understand.
+
+    If the response reply is "I don't know":, you should not reinvent the wheel and come up with something that is not in the response.  
+    """
+    messages =  [
+        {'role':'system',
+         'content': system_message},
+        {'role':'user',
+         'content': f"{delimiter}{message}{delimiter}"},
+    ]
+    translated_response_bengali_str = get_completion_by_messages(messages)
+    translated_response_bengali_str = translated_response_bengali_str.replace("'", "\"")
+    return translated_response_bengali_str
+
+def translate_output_bengali(message):
+
+    translation_bengali = safety_message_translator_bengali(message)
+    return translation_bengali

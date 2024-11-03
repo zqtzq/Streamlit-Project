@@ -19,6 +19,9 @@ st.set_page_config(
 )
 # endregion <--------- Streamlit App Configuration --------->
 from logics.query_handler import process_user_message
+from logics.query_handler import translate_output_chinese
+from logics.query_handler import translate_output_bengali
+
 
 with st.expander("IMPORTANT NOTICE (expand to view):"):
         st.write(
@@ -52,5 +55,16 @@ if form.form_submit_button("Submit"):
     # Display source documents as clickable links
     st.write("Source URL(s):")
     urls = [doc.metadata['url'] for doc in response['source_documents']]
-    clickable_urls = [f"[{url}]({url})" for url in urls]  # Create clickable links
+    unique_urls = list(set(urls))  # Use set to ensure URLs are unique
+
+    clickable_urls = [f"[{url}]({url})" for url in unique_urls]  # Create clickable links
     st.markdown(", ".join(clickable_urls), unsafe_allow_html=True)
+
+
+    translated_message_chinese = translate_output_chinese(response)
+    st.write("Chinese translation:")
+    st.write(translated_message_chinese)
+
+    translated_message_bengali = translate_output_bengali(response)
+    st.write("Bengali translation:")
+    st.write(translated_message_bengali)
