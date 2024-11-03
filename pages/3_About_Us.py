@@ -13,6 +13,13 @@ st.write(" With the diverse construction workforce in Singapore, many constructi
          
 st.write("The importance of considering language and cultural diversity in occupational safety cannot be overstated, as depicted in [2]. This app aims to bridge the gap by providing a user-friendly interface for workers to ask questions about workplace safety and health in their native language. The app then provide responses in English, along with translations in the workers' native language, and accompanied by relevant URLs to the circulars, for further verfication to enhance the trustworthiness and reliability of the information provided.")
 
+st.markdown("""##### References:
+[1] Y. M. Goh and M. S. H. Lim, “Insights from the CSOC: Language Issues in the Communication of Safety Knowledge,” School of Design and Environment, National University of Singapore, Mar. 2017.
+  
+[2] M. De Jesus-Rivas, H. A. Conlon, and C. Burns, “The Impact of Language and Culture Diversity in Occupational Safety,” *Workplace Health & Safety*, vol. 64, no. 1, pp. 24–27, Jan. 2016. doi: 10.1177/2165079915607872.
+""")
+
+
 st.header("Project Scope & Objectives")
 st.markdown(
     """
